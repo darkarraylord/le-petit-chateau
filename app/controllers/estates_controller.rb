@@ -36,6 +36,11 @@ class EstatesController < ApplicationController
     redirect_to estate_path
   end
 
+  def disable
+    @estate = Estate.find(params[:id])
+    @estate.disable = true
+  end
+
   private
   def estate_params
     params.require(:estate).permit(:name, :description, photos: [])
