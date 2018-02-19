@@ -8,6 +8,14 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-plugin'
+end
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

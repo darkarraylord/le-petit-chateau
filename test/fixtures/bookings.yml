@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  estate: one
+  star_date: 2018-02-18
+  end_date: 2018-02-18
+  total_cost: 1
+
+two:
+  user: two
+  estate: two
+  star_date: 2018-02-18
+  end_date: 2018-02-18
+  total_cost: 1

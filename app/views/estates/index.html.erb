@@ -1,0 +1,12 @@
+<h1>Estates</h1>
+<%= link_to "Create New Estate", new_estate_path %>
+<ul>
+  <% @estates.each do |estate| %>
+    <li>
+      <%= cl_image_tag estate.photos.first.path %>
+      <%= estate.name  %>
+      <%= link_to estate.name, estate_path(id: estate.id) %>
+      | <%= link_to "Delete", estate_path(id: estate.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>

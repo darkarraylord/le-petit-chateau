@@ -1,0 +1,8 @@
+<h1><%= @estate.name %></h1>
+<p><%= @estate.description %></p>
+<% @estate.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
+<%= link_to "Edit this Estate", edit_estate_path(id: @estate.id ) %>
+
