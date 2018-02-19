@@ -3,6 +3,15 @@
 <% @estate.photos.each do |photo| %>
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
 <% end %>
-
+<%= link_to "Book this castle", new_estate_booking_path(estate_id: @estate.id) %>
 <%= link_to "Edit this Estate", edit_estate_path(id: @estate.id ) %>
-
+<ul>
+  <% @estate.bookings.each do |booking| %>
+    <li>
+      Estate: <%= booking.estate.name %> |
+      Init date: <%= booking.star_date %> |
+      End date: <%= booking.end_date %> |
+      Booked by: <%= booking.user.email %>
+    </li>
+  <% end %>
+</ul>
