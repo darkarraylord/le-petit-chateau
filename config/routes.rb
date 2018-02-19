@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'bookings/index'
+
+  get 'bookings/show'
+
   mount Attachinary::Engine => "/attachinary"
 
   resources :estates do
