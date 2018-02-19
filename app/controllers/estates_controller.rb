@@ -10,6 +10,7 @@ class EstatesController < ApplicationController
   def new
     @estate = Estate.new
   end
+
   def create
     @estate = Estate.new(estate_params)
     @estate.user = current_user
@@ -42,6 +43,7 @@ class EstatesController < ApplicationController
   end
 
   private
+
   def estate_params
     params.require(:estate).permit(:name, :description, photos: [])
   end
