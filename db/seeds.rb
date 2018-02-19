@@ -7,7 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
+
 Booking.delete_all
+##Delete all cloudinary photos to avoid mess
+Estate.all.each do |estate|
+  estate.photos.each do |photo|
+    Cloudinary::Api.delete_resources(photo.public_id)
+  end
+end
 Estate.delete_all
 User.delete_all
 
