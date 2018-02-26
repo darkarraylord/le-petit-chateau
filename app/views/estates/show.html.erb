@@ -15,4 +15,11 @@
       Booked by: <%= booking.user.email %>
     </li>
   <% end %>
+  <li> Bokking settings:</li>
+    <ul>
+      <li>Minimum stay: <%= @estate.minimum_reservation_span %></li>
+      <li>
+        <%= "Reservation must spend at least one weekend." if @estate.must_have_weekend %>
+        </li>
+    </ul>
 </ul>

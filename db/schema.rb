@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219221321) do
+ActiveRecord::Schema.define(version: 20180226224111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180219221321) do
     t.datetime "updated_at", null: false
     t.boolean "disable", default: false, null: false
     t.boolean "hide", default: false, null: false
+    t.integer "minimum_reservation_span"
+    t.boolean "must_have_weekend"
     t.index ["user_id"], name: "index_estates_on_user_id"
   end
 

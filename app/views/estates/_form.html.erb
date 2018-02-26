@@ -1,9 +1,12 @@
 <div class="container">
-  <%= simple_form_for(@estate) do |f| %>
+  <%= simple_form_for @estate do |f| %>
   <div class="form-group">
     <%= f.input :name, placeholder: "Enter the estate name", html: {:class => 'form-control'} %>
     <%= f.input :description, as: :text, html: {:class => 'form-control'} %>
     <%= f.input :photos, as: :attachinary %>
+    <h1>Booking Reservation Criteria:</h1>
+      <%= f.input :minimum_reservation_span, label: 'Minimum Reservation Span', as: :integer, hint: 'ie: 7 days'  %>
+      <%= f.input :must_have_weekend, label: 'Must spend weekend' , as: :radio_buttons, hint: 'Booking against this estate must spend one weekend.'  %>
   </div>
   <%= f.submit %>
   <% end %>

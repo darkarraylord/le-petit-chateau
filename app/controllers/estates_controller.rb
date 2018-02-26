@@ -45,7 +45,13 @@ class EstatesController < ApplicationController
   private
 
   def estate_params
-    params.require(:estate).permit(:name, :description, photos: [])
+    params.require(:estate).permit(
+      :name,
+      :description,
+      :minimum_reservation_span,
+      :must_have_weekend,
+      photos: []
+    )
   end
 
 end
