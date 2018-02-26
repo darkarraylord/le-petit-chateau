@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estate: one
+  minimum_reservation_span: 
+  must_have_weekend: false
+
+two:
+  estate: two
+  minimum_reservation_span: 
+  must_have_weekend: false

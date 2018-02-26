@@ -4,6 +4,12 @@
     <%= f.input :name, placeholder: "Enter the estate name", html: {:class => 'form-control'} %>
     <%= f.input :description, as: :text, html: {:class => 'form-control'} %>
     <%= f.input :photos, as: :attachinary %>
+    <h1>Booking Reservation Criteria:</h1>
+    <ul>
+      <li>Add fields for Mininum Reservation span: ie 7 days</li>
+      <li>Also if the reservation must spend at least one weekend.</li>
+    </ul>
+
   </div>
   <%= f.submit %>
   <% end %>
