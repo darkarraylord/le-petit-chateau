@@ -1,8 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-.getmotopress.com	TRUE	/	FALSE	1999999999	__cfduid	da29602196d44f5fc8bfe6c40aa152d061520084781
-themes.getmotopress.com	TRUE	/	FALSE	1999999999	mphb_session	db43fae0d85cae1298dcb56560010e7c%7C%7C1520086966%7C%7C1520086606
-themes.getmotopress.com	TRUE	/	FALSE	1999999999	woocommerce_items_in_cart	1
-themes.getmotopress.com	TRUE	/	FALSE	1999999999	woocommerce_cart_hash	f0f0d62c2b52672e6b8df18b65364fc1
-themes.getmotopress.com	TRUE	/	FALSE	1999999999	wp_woocommerce_session_1464257075f23bbf0f43942e0bdf48c9	d11f82c370e63ff5711ee1ba764d4e4a%7C%7C1520257821%7C%7C1520254221%7C%7C71446df3df0545bb0071eb599f628fc4
-
