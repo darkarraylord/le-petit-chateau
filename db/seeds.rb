@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
-
+Amenity.delete_all
 Booking.delete_all
 ##Delete all cloudinary photos to avoid mess
 Estate.all.each do |estate|
@@ -18,6 +18,7 @@ end
 Estate.delete_all
 User.delete_all
 
+amenities = [ 'Outdoor Pool', 'indoor Pool', 'Ball Room', 'Tenis Court', 'Stables']
 estates = [
   {
     name: 'Versailles',
@@ -36,6 +37,11 @@ estates = [
     ]
   }
 ]
+
+#Create standard amenities:
+amenities.each do |amenity|
+  Amenity.create(:title => amenity)
+end
 
 #Create a base user
 new_user = User.create(

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226224111) do
+ActiveRecord::Schema.define(version: 20180303181931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "attachinary_files", id: :serial, force: :cascade do |t|
     t.string "attachinariable_type"
@@ -41,6 +47,15 @@ ActiveRecord::Schema.define(version: 20180226224111) do
     t.datetime "updated_at", null: false
     t.index ["estate_id"], name: "index_bookings_on_estate_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "estate_amenities", force: :cascade do |t|
+    t.bigint "estate_id"
+    t.bigint "amenity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_estate_amenities_on_amenity_id"
+    t.index ["estate_id"], name: "index_estate_amenities_on_estate_id"
   end
 
   create_table "estates", force: :cascade do |t|
@@ -76,5 +91,7 @@ ActiveRecord::Schema.define(version: 20180226224111) do
 
   add_foreign_key "bookings", "estates"
   add_foreign_key "bookings", "users"
+  add_foreign_key "estate_amenities", "amenities"
+  add_foreign_key "estate_amenities", "estates"
   add_foreign_key "estates", "users"
 end

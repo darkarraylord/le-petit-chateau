@@ -1,56 +1,86 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
+    <!-- Page-->
+    <div class="text-center page">
+      <!-- Page Header-->
+      <header class="page-header" style="padding-bottom: 24px;">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-default-with-top-panel" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fullwidth" data-md-stick-up-offset="90px" data-lg-stick-up-offset="150px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+            <div class="rd-navbar-top-panel rd-navbar-collapse">
+              <div class="rd-navbar-top-panel-inner">
+                <div class="left-side">
+                  <div class="group"><span class="text-italic">Follow Us:</span>
+                    <ul class="list-inline">
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-instagram" href="#"></a></li>
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-facebook" href="#"></a></li>
+                      <li><a class="icon icon-sm icon-secondary-5 fa fa-twitter" href="#"></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="center-side">
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand fullwidth-brand">
+                    <%= link_to root_path, class: "brand-name" do %>
+                      <%= image_tag "logo-default-280x48.png", width: 280, height: 48 %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="right-side">
+                  <!-- Contact Info-->
+                  <div class="contact-info">
+                    <div class="unit unit-middle unit-horizontal unit-spacing-xs">
+                      <div class="unit__left"><span class="icon icon-primary text-middle mdi mdi-phone"></span></div>
+                      <div class="unit__body">
+                        <% if user_signed_in? %>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "text-middle" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar collapse toggle-->
+                <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand mobile-brand"><a class="brand-name" href="index-2.html">
+                  <%= image_tag "logo-default-left-245x42.png", width: 245, height: 42 %></a></div>
+              </div>
+              <div class="rd-navbar-aside-right">
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-nav-scroll-holder">
+                    <ul class="rd-navbar-nav">
+                      <li class="active">
+                        <%= link_to "Home", root_path %>
+                      </li>
+                      <li><%= link_to "Estates", estates_path %>
+                      </li>
+                      <li><a href="#">Locations</a>
+                        <ul class="rd-navbar-dropdown">
+                          <li>
+                            <a href="services.html">England</a>
+                          </li>
+                          <li>
+                            <a href="services.html">France</a>
+                          </li>
+                        </ul>
+                      </li>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "My Estates", estates_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
+                      <li><a href="contacts.html">Contacts</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
-      </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
+      </header>

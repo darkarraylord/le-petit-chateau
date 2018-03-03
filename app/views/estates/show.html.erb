@@ -1,25 +1,212 @@
-<h1><%= @estate.name %></h1>
-<p><%= @estate.description %></p>
-<% @estate.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-<%= link_to "Book this castle", new_estate_booking_path(estate_id: @estate.id) %>
-<%= link_to "Edit this Estate", edit_estate_path(id: @estate.id ) %>
-<h1>Bookings</h1>
-<ul>
-  <% @estate.bookings.each do |booking| %>
-    <li>
-      Estate: <%= booking.estate.name %> |
-      Init date: <%= booking.start_date %> |
-      End date: <%= booking.end_date %> |
-      Booked by: <%= booking.user.email %>
-    </li>
-  <% end %>
-  <li> Bokking settings:</li>
-    <ul>
-      <li>Minimum stay: <%= @estate.minimum_reservation_span %></li>
-      <li>
-        <%= "Reservation must spend at least one weekend." if @estate.must_have_weekend %>
+<main>
+  <!-- Breadcrumbs & Page title-->
+  <section class="section-md text-center bg-image breadcrumbs-01">
+    <div class="shell shell-fluid">
+      <div class="range range-xs-center">
+        <div class="cell-xs-12 cell-xl-11">
+          <h2 class="text-white"><%= @estate.name %></h2>
+          <ul class="breadcrumbs-custom">
+            <li><a href="index-2.html">Home</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li class="active">Masonry Gallery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-md bg-white text-center">
+    <div class="shell isotope-wrap">
+      <ul class="isotope-filters-responsive">
+        <li>
+          <p>Choose your category:</p>
         </li>
-    </ul>
-</ul>
+        <li class="block-top-level">
+          <!-- Isotope Filters-->
+          <button class="isotope-filters-toggle button button-sm button-primary" data-custom-toggle="#isotope-1" data-custom-toggle-hide-on-blur="true">Filter<span class="caret"></span></button>
+          <div class="isotope-filters" id="isotope-1">
+            <ul class="inline-list">
+              <li><a class="active" data-isotope-filter="*" data-isotope-group="gallery" href="#">Estate</a></li>
+              <li><a data-isotope-filter="Category 1" data-isotope-group="gallery" href="#">Rooms</a></li>
+              <li><a data-isotope-filter="Category 2" data-isotope-group="gallery" href="#">Ball Rooms</a></li>
+              <li><a data-isotope-filter="Category 3" data-isotope-group="gallery" href="#">Dining Rooms</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <!-- Isotope Content-->
+
+
+      <div class="row isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-photo-swipe-gallery="gallery">
+        <div class="col-xs-12 col-sm-6 col-md-3 grid-sizer"> </div>
+        <% @estate.photos.each do |photo| %>
+          <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 1">
+            <a class="thumbnail-classic" href="grid-gallery-1-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+              <figure>
+                <%= cl_image_tag photo.path, width: 270, height: 375, crop: :fill %>
+              </figure>
+              <div class="caption">
+                <p class="caption-title">Luxury Suites</p>
+                <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+              </div></a>
+          </div>
+        <% end %>
+
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 1">
+          <a class="thumbnail-classic" href="grid-gallery-1-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-1-270x375.jpg" , width: 270, height: 375 %>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Luxury Suites</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 isotope-item" data-filter="Category 2"><a class="thumbnail-classic" href="grid-gallery-2-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-2-570x375.jpg" , width: 570, height: 375%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Comfortable Accommodation</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 3"><a class="thumbnail-classic" href="grid-gallery-3-1058x800_original.jpg" data-photo-swipe-item="" data-size="1058x800">
+            <figure><%= image_tag "masonry-gallery-3-270x229.jpg" , width: 270, height: 229%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Cozy Atmosphere</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 1"><a class="thumbnail-classic" href="grid-gallery-6-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-4-270x229.jpg" , width: 270, height: 229%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Luxury Suites</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Category 1"><a class="thumbnail-classic" href="grid-gallery-4-1200x797_original.jpg" data-photo-swipe-item="" data-size="1200x797">
+            <figure><%= image_tag "masonry-gallery-5-570x264.jpg" , width: 570, height: 264%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Comfortable Accommodation</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 2"><a class="thumbnail-classic" href="grid-gallery-5-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-6-270x264.jpg" , width: 270, height: 264%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Cozy Atmosphere</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 3"><a class="thumbnail-classic" href="grid-gallery-9-1152x800_original.jpg" data-photo-swipe-item="" data-size="1152x800">
+            <figure><%= image_tag "masonry-gallery-7-270x445.jpg" , width: 270, height: 445%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Luxury Suites</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 isotope-item" data-filter="Category 1"><a class="thumbnail-classic" href="grid-gallery-7-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-8-270x264.jpg" , width: 270, height: 264%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Comfortable Accommodation</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Category 3"><a class="thumbnail-classic" href="grid-gallery-8-1200x800_original.jpg" data-photo-swipe-item="" data-size="1200x800">
+            <figure><%= image_tag "masonry-gallery-9-570x264.jpg" , width: 570, height: 264%>
+            </figure>
+            <div class="caption">
+              <p class="caption-title">Cozy Atmosphere</p>
+              <p class="caption-text">Each suite has its own unique décor and arrangement.</p>
+            </div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Page Footer-->
+  <footer class="page-footer-corporate object-wrap object-wrap-md-left object-wrap-map bg-gray-dark text-left">
+    <div class="object-wrap-body object-wrap-map sizing-1">
+      <!-- RD Google Map-->
+      <div class="rd-google-map rd-google-map__model" data-zoom="15" data-x="2.1203554" data-y="48.8048649">
+        <ul class="map_locations">
+          <li data-y="48.8048649" data-x="2.1203554">
+            <p>Versailles France.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="shell">
+      <div class="range range-sm-right">
+        <div class="cell-md-6">
+          <div class="page-footer-corporate-inner">
+            <div class="page-footer-corporate-top range range-60">
+              <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+                <h5>Ammenities</h5>
+                <hr class="divider divider-sm divider-left">
+                <ul class="list-unstyled">
+                  <li>
+                    <dl class="list-desc">
+                      <dt class="text-middle"><span class="icon icon-sm mdi mdi-map-marker"> </span></dt>
+                      <dd class="text-middle"><a class="link link-md" href="#"> text for ammenity </a></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <div class="group-sm">
+                      <dl class="list-desc">
+                        <dt class="text-middle"><span class="icon icon-sm mdi mdi-phone"> </span></dt>
+                        <dd class="text-middle"><a class="link link-md" href="callto:#"> text for ammenity </a></dd>
+                      </dl>
+                      <dl class="list-desc">
+                        <dt class="text-middle"><span class="icon icon-sm mdi mdi-email-outline"> </span></dt>
+                        <dd class="text-middle"><a class="link" href="mailto:#"> text for ammenity </a></dd>
+                      </dl>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+                <h5>Services</h5>
+                <hr class="divider divider-sm divider-left">
+                <div class="group">
+                  <dl class="list-desc">
+                    <dt>Weekdays: </dt>
+                    <dd><span>8:00–20:00</span></dd>
+                  </dl>
+                  <dl class="list-desc">
+                    <dt>Weekends: </dt>
+                    <dd><span>9:00–18:00</span></dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+                <h5>Butler Service</h5>
+                <hr class="divider divider-sm divider-left">
+                <ul class="nav-list list-column-3">
+                  <li><a class="link" href="index.html">Home</a></li>
+                  <li><a class="link" href="about-us.html">About Us</a></li>
+                  <li class="active"><a class="link" href="grid-gallery.html">Gallery</a></li>
+                  <li><a class="link" href="services.html">Services</a></li>
+                  <li><a class="link" href="contacts.html">Location</a></li>
+                  <li><a class="link" href="specials.html">Specials</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="page-footer-corporate-bottom wow fadeInUp" data-wow-delay=".1s">
+              <div class="group"><span>Aditional info:</span>
+
+              </div>
+              <p class="rights">Le Petit Chateau &nbsp;&copy;&nbsp;<span id="copyright-year"></span>.&nbsp;<br class="veil-sm"><a class="link-underline" href="privacy-policy.html">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>

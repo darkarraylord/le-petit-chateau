@@ -1,0 +1,17 @@
+HTTrack3.49-2 launched on Tue, 27 Feb 2018 21:48:17 at http://cdn.livedemo00.template-help.com/wt_63579/
+(httrack http://cdn.livedemo00.template-help.com/wt_63579/ )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+21:48:18	Error: 	"No data (connection closed)" (-4) after 2 retries at link cdn.livedemo00.template-help.com/robots.txt (from primary/primary)
+21:55:29	Error: 	"Not Found" (404) at link cdn.livedemo00.template-help.com/wt_63579/images/breadcrumbs-02.jpg (from cdn.livedemo00.template-help.com/wt_63579/css/style.css)
+21:55:29	Error: 	"Not Found" (404) at link cdn.livedemo00.template-help.com/wt_63579/css/mCSB_buttons.png (from cdn.livedemo00.template-help.com/wt_63579/css/style.css)
+21:55:29	Error: 	"Not Found" (404) at link cdn.livedemo00.template-help.com/wt_63579/images/seperator.png (from cdn.livedemo00.template-help.com/wt_63579/css/style.css)
+21:55:29	Error: 	"Not Found" (404) at link cdn.livedemo00.template-help.com/wt_63579/images/play.png (from cdn.livedemo00.template-help.com/wt_63579/css/style.css)
+21:55:29	Error: 	"Not Found" (404) at link cdn.livedemo00.template-help.com/wt_63579/images/play-video.png (from cdn.livedemo00.template-help.com/wt_63579/css/style.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 7 minutes 26 seconds : 183 links scanned, 177 files written (10651587 bytes overall) [9483326 bytes received at 21263 bytes/sec], 1547094 bytes transferred using HTTP compression in 38 files, ratio 20%, 5.2 requests per connection
+(6 errors, 0 warnings, 0 messages)

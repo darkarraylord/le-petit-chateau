@@ -1,13 +1,111 @@
-<div class="container">
-  <%= simple_form_for @estate do |f| %>
-  <div class="form-group">
-    <%= f.input :name, placeholder: "Enter the estate name", html: {:class => 'form-control'} %>
-    <%= f.input :description, as: :text, html: {:class => 'form-control'} %>
-    <%= f.input :photos, as: :attachinary %>
-    <h1>Booking Reservation Criteria:</h1>
-      <%= f.input :minimum_reservation_span, label: 'Minimum Reservation Span', as: :integer, hint: 'ie: 7 days'  %>
-      <%= f.input :must_have_weekend, label: 'Must spend weekend' , as: :radio_buttons, hint: 'Booking against this estate must spend one weekend.'  %>
+
+<!-- RD Mailform-->
+<%= simple_form_for @estate, defaults: {input_html: {class: 'form-control'}, label_html: {class: 'form-label form-label-outside'} } do |f| %>
+<section class="section-xxs bg-white text-left">
+  <div class="shell rd-mailform">
+    <div class="cell-xs-12">
+      <%= f.input :name, placeholder: "Enter the estate name", label: 'Estate name', required: true, error: 'Estate must have a name.', wrapper_html: {class: 'form-wrap'} %>
+    </div>
+
+    <div class="cell-xs-12">
+      <%= f.input :description, as: :text, label: 'Description', input_html: {class: 'form-input form-control-has-validation'}, wrapper_html: {class: 'form-wrap'} %>
+    </div>
+
+    <div class="cell-xs-12">
+      <%= f.input :photos, as: :attachinary, wrapper_html: {class: 'form-wrap'} %>
+    </div>
   </div>
-  <%= f.submit %>
-  <% end %>
+</section>
+<section class="section-xxs bg-white text-left">
+  <div class="shell rd-mailform">
+    <h4>Booking Reservation Criteria:</h4>
+
+    <div class="cell-xs-12">
+      <%= f.input :minimum_reservation_span, label: 'Minimum Reservation Span', as: :integer, hint: 'ie: 7 days', wrapper_html: {class: 'form-wrap'}  %>
+    </div>
+    <div class="cell-xs-12">
+      <%= f.input :must_have_weekend, label: 'Must spend weekend' , as: :radio_buttons, hint: 'Booking against this estate must spend one weekend.', wrapper_html: {class: 'form-wrap'}  %>
+    </div>
+  </div>
+</section>
+
+<!-- Page Footer-->
+<section class="section-xxs bg-white text-left">
+<div class="shell rd-mailform">
+  <div class="cell-xs-12">
+    <h4>Location & Ammenities</h4>
+  </div>
 </div>
+</section>
+<footer class="page-footer-corporate object-wrap object-wrap-md-left object-wrap-map bg-gray-dark text-left">
+  <div class="object-wrap-body object-wrap-map sizing-1">
+    <!-- RD Google Map-->
+    <div class="rd-google-map rd-google-map__model" data-zoom="15" data-x="-73.9874068" data-y="40.643180">
+      <ul class="map_locations">
+        <li data-y="40.643180" data-x="-73.9874068">
+          <p>9870 St Vincent Place, Glasgow, DC 45 Fr 45.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="shell">
+    <div class="range range-sm-right">
+      <div class="cell-md-6">
+        <div class="page-footer-corporate-inner">
+          <div class="page-footer-corporate-top range range-60">
+            <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+              <h5>Amenities</h5>
+              <hr class="divider divider-sm divider-left">
+              <%= f.association :amenities, collection: Amenity.order(:title), prompt: "Choose a Company", as: :check_boxes %>
+            </div>
+            <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+              <h5>Other settings</h5>
+              <hr class="divider divider-sm divider-left">
+              <div class="group">
+                <dl class="list-desc">
+                  <dt>Weekdays: </dt>
+                  <dd><span>8:00–20:00</span></dd>
+                </dl>
+                <dl class="list-desc">
+                  <dt>Weekends: </dt>
+                  <dd><span>9:00–18:00</span></dd>
+                </dl>
+              </div>
+            </div>
+            <div class="cell-sm-6 cell-md-12 wow fadeInUp" data-wow-delay=".1s">
+              <h5>Navigation</h5>
+              <hr class="divider divider-sm divider-left">
+              <ul class="nav-list list-column-3">
+                <li><a class="link" href="index.html">Home</a></li>
+                <li><a class="link" href="about-us.html">About Us</a></li>
+                <li><a class="link" href="grid-gallery.html">Gallery</a></li>
+                <li><a class="link" href="services.html">Services</a></li>
+                <li><a class="link" href="contacts.html">Location</a></li>
+                <li><a class="link" href="specials.html">Specials</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="page-footer-corporate-bottom wow fadeInUp" data-wow-delay=".1s">
+            <div class="group"><span>Follow Us:</span>
+              <ul class="list-inline">
+                <li><a class="icon icon-sm icon-gray-3 fa fa-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm icon-gray-3 fa fa-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm icon-gray-3 fa fa-twitter" href="#"></a></li>
+              </ul>
+            </div>
+            <p class="rights">Royal Villas&nbsp;&copy;&nbsp;<span id="copyright-year"></span>.&nbsp;<br class="veil-sm"><a class="link-underline" href="privacy-policy.html">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<section class="section-xxs bg-white text-center">
+  <div class="shell rd-mailform">
+    <div class="cell-xs-12">
+      <%= f.button :submit, class: 'button button-primary button-square button-block button-effect-ujarak' %>
+    </div>
+  </div>
+</section>
+<% end %>

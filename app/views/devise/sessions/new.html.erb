@@ -1,15 +1,29 @@
-<h2>Log in</h2>
+<!-- Buttons-->
+<section class="section-md bg-white text-center">
+  <div class="shell">
+    <div class="range range-sm-center range-40">
+      <div class="cell-sm-9 cell-md-7 cell-lg-6">
+        <h4>Login</h4>
+        <div class="group-sm group-middle group-center">
+          <a class="button button-steel-blue button-icon button-icon-left" href="#"><span class="icon fa fa-facebook"></span>Facebook</a>
+          <a class="button button-cerulean button-icon button-icon-left" href="#"><span class="icon fa fa-twitter"></span>Twitter</a>
+        </div>
+        <div class="text-decoration-lines"><span class="text-decoration-lines-content">or</span></div>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "rd-mailform text-center" }, defaults: { input_html: { class: 'form-input' }, label_html: { class: 'form-label form-label-outside' }}) do |f| %>
+          <%= f.input :email, required: false, autofocus: true, label: 'Username or Email', wrapper_html: { class: 'form-wrap' } %>
+          <%= f.input :password, required: false, wrapper_html: { class: 'form-wrap' }  %>
+          <%= f.input :remember_me, as: :boolean, inline_label: 'Yes, remember me' if devise_mapping.rememberable?%>
+          <div class="form-button form-button-block'">
+            <%= f.button :submit, "Sign in", class: "button button-primary button button-square button-effect-ujarak" %>
+          </div>
+        <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+    </div>
   </div>
+  <%= render "devise/shared/links" %>
+</section>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+<%= render "shared/footer" %>
 
-<%= render "devise/shared/links" %>
+
