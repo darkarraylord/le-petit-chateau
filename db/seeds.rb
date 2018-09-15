@@ -66,6 +66,7 @@ estates.each do |estate|
   new_booking.estate = estate
   new_booking.start_date = Date.today
   new_booking.end_date = Date.tomorrow
+  new_booking.status = "pending"
   new_booking.save!
 end
 

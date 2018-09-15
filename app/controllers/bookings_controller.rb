@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.estate = Estate.find(params[:estate_id])
+    @booking.status = "pending"
     if @booking.save
       redirect_to :root
     else
